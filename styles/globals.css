@@ -1,26 +1,50 @@
 @import "tailwindcss";
 
+/* font  */
+
+@font-face {
+  font-family: "SfProDisplay";
+  src: url("/assets/fonts/sf-pro-display/SFPRODISPLAYREGULAR.OTF") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SfProDisplay";
+  src: url("/assets/fonts/sf-pro-display/SFPRODISPLAYMEDIUM.OTF") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --brandGray: #F5F5F5;
+  --brandGraySecondary: #E1E1E1;
+  --brandRed: #EA2427;
+  --brandGrayText: #333;
+  --fontSfProDisplay: "SfProDisplay", sans-serif;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-brandGray: var(--brandGray);
+  --color-brandGrayText: var(--brandGrayText);
+  --color-brandGraySecondary: var(--brandGraySecondary);
+  --font-sfpro: var(--fontSfProDisplay);
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #1A1A1A;
+    --foreground: #FFF;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--fontSfProDisplay);
 }
