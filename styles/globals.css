@@ -93,3 +93,6 @@ body {
 .dark .icon-dark-mode {
   filter: brightness(0) invert(1);
 }
+.hover\:icon-dark-mode:hover {
+  filter: brightness(0) invert(1); /* This will make the icon white on hover */
+}

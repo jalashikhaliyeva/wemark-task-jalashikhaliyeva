@@ -7,6 +7,7 @@ import Hero from "@/src/components/home/Hero";
 import TopToolBar from "@/src/components/layout/TopToolbar";
 import Services from "@/src/components/home/Services";
 import { getServiceFeatures } from "./api/services/servicesService";
+import OfferedProducts from "@/src/components/home/OfferedProducts";
 
 interface HomeProps {
   heroData: HeroData;
@@ -21,6 +22,7 @@ export default function Home({ heroData, serviceFeatures }: HomeProps) {
         <TopToolBar />
         <Hero data={heroData} />
         <Services data={serviceFeatures} />
+        <OfferedProducts />
       </Container>
     </main>
   );
