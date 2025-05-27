@@ -3,6 +3,7 @@ import Image from "next/image";
 import DarkModeSwitcher from "../DarkModeSwitcher";
 import { HiMenu, HiX } from "react-icons/hi";
 
+
 function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 

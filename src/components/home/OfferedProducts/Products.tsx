@@ -1,6 +1,9 @@
+// Products.tsx - Updated component
+import { useCart } from "@/src/context/CartContext";
 import { ProductsProps } from "@/src/types";
 import Image from "next/image";
 import React, { useState, useEffect, useRef } from "react";
+import CustomToast from "../../layout/CustomToast";
 
 export default function Products({ products }: ProductsProps) {
   const PAGE_SIZE = 8;
@@ -8,6 +11,14 @@ export default function Products({ products }: ProductsProps) {
   const [loading, setLoading] = useState(false);
   const loaderRef = useRef<HTMLDivElement>(null);
 
+  const [toast, setToast] = useState<{
+    show: boolean;
+    product: { image: string; name: string } | null;
+    message: string;
+    linkHref: string;
+  }>({ show: false, product: null, message: "", linkHref: "" });
+
+  const { addToCart, addToFavorites } = useCart();
   const itemsToRender = products.slice(0, visibleCount);
 
   useEffect(() => {
@@ -40,8 +51,35 @@ export default function Products({ products }: ProductsProps) {
     );
   }
 
+  const handleAddToCart = (item: (typeof products)[number]) => {
+    addToCart(item); 
+    setToast({
+      show: true,
+      product: { image: item.image, name: item.name },
+      message: "Məhsul səbətə əlavə olundu",
+      linkHref: "/cart",
+    });
+  };
+
+  const handleAddToFavorites = (item: (typeof products)[number]) => {
+    addToFavorites(item); 
+    setToast({
+      show: true,
+      product: { image: item.image, name: item.name },
+      message: "Məhsul favorilər siyahısına əlavə olundu",
+      linkHref: "/favorites",
+    });
+  };
+
   return (
     <>
+      <CustomToast
+        show={toast.show}
+        onClose={() => setToast((t) => ({ ...t, show: false }))}
+        product={toast.product!}
+        message={toast.message}
+        linkHref={toast.linkHref}
+      />
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-6">
         {itemsToRender.map((item) => (
           <div
@@ -120,7 +158,10 @@ export default function Products({ products }: ProductsProps) {
 
             {/* Actions */}
             <div className="pt-3 md:pt-6 flex items-center gap-2">
-              <button className="group py-1.5 md:py-2.5 cursor-pointer px-2 md:px-4 bg-brandGraySecondary rounded-xl md:rounded-2xl w-[80%] flex items-center justify-center gap-3 md:gap-6 hover:bg-brandRed hover:text-white transition-colors duration-300">
+              <button
+                onClick={() => handleAddToCart(item)}
+                className="group py-1.5 md:py-2.5 cursor-pointer px-2 md:px-4 bg-brandGraySecondary rounded-xl md:rounded-2xl w-[80%] flex items-center justify-center gap-3 md:gap-6 hover:bg-brandRed hover:text-white transition-colors duration-300"
+              >
                 <div className="hidden md:flex relative w-4 h-4 md:w-5 md:h-5">
                   <Image
                     src={"/assets/img/icons/Buy.png"}
@@ -131,7 +172,10 @@ export default function Products({ products }: ProductsProps) {
                 </div>
                 <span className="text-xs md:text-base">Səbətə əlavə et</span>
               </button>
-              <button className="group cursor-pointer py-2 md:py-3 px-2 md:px-4 text-center bg-brandGraySecondary rounded-xl md:rounded-2xl w-[20%] flex items-center justify-center hover:bg-brandRed transition-colors duration-300">
+              <button
+                onClick={() => handleAddToFavorites(item)}
+                className="group cursor-pointer py-2 md:py-3 px-2 md:px-4 text-center bg-brandGraySecondary rounded-xl md:rounded-2xl w-[20%] flex items-center justify-center hover:bg-brandRed transition-colors duration-300"
+              >
                 <div className="relative w-4 h-4 md:w-5 md:h-5">
                   <Image
                     src={"/assets/img/icons/Heart.png"}
@@ -154,13 +198,6 @@ export default function Products({ products }: ProductsProps) {
       )}
 
       <div ref={loaderRef} />
-
-      {/*  "No more items" message */}
-      {/* {!loading && visibleCount >= products.length && (
-        <p className="text-center py-4 text-sm text-gray-500">
-          Bütün məhsullar yükləndi.
-        </p>
-      )} */}
     </>
   );
 }

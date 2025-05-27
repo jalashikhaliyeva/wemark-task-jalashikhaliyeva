@@ -10,6 +10,7 @@ import OfferedProducts from "@/src/components/home/OfferedProducts";
 import { getProducts } from "./api/services/productsService";
 import Partners from "@/src/components/home/Partners";
 import Blogs from "@/src/components/home/Blogs";
+import Head from "next/head";
 
 interface HomeProps {
   heroData: HeroData;
@@ -24,6 +25,9 @@ export default function Home({
 }: HomeProps) {
   return (
     <main>
+      <Head>
+        <title>Jala Sh. | Wemark/Baku Electronics</title>
+      </Head>
       <Container>
         <Header />
         <TopToolBar />

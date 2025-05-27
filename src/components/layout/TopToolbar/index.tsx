@@ -5,10 +5,12 @@ import { FiSearch } from "react-icons/fi";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { cities } from "@/src/shared/mock/cities";
 import { searchSuggestions } from "@/src/shared/mock/searchSuggestions";
+import { useCart } from "@/src/context/CartContext";
 
 function TopToolBar() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [selectedCity, setSelectedCity] = useState("Bakı");
+  const { cartCount, favoritesCount } = useCart();
   const [searchOpen, setSearchOpen] = useState(false);
   const searchInputRef = useRef<HTMLInputElement>(null);
 
@@ -21,6 +23,12 @@ function TopToolBar() {
     setSearchOpen((prev) => !prev);
     searchInputRef.current?.focus();
   };
+  const icons = [
+    { id: "compare", src: "scales.png", alt: "scale icon", count: 0 },
+    { id: "cart", src: "Buy.png", alt: "buy icon", count: cartCount },
+    { id: "heart", src: "Heart.png", alt: "heart icon", count: favoritesCount },
+    { id: "user", src: "user.png", alt: "user icon", count: 0 },
+  ];
 
   return (
     <div className="my-5 flex items-center gap-3 sm:gap-4 justify-between flex-wrap relative">
@@ -123,24 +131,24 @@ function TopToolBar() {
         )}
       </div>
 
-      {/* Icons - Hidden on mobile */}
-      {[
-        { src: "scales.png", alt: "scale icon" },
-        { src: "Buy.png", alt: "buy icon" },
-        { src: "Heart.png", alt: "heart icon" },
-        { src: "user.png", alt: "user icon" },
-      ].map((icon, i) => (
+      {icons.map((icon) => (
         <div
-          key={i}
-          className="hidden md:flex p-3 bg-brandGray rounded-xl items-center gap-2 hover:bg-brandGraySecondary transition cursor-pointer"
+          key={icon.id}
+          className="relative hidden md:flex p-3 bg-brandGray rounded-xl items-center gap-2 hover:bg-brandGraySecondary transition cursor-pointer"
         >
           <Image
             src={`/assets/img/icons/${icon.src}`}
-            width={50}
-            height={50}
+            width={24}
+            height={24}
             alt={icon.alt}
-            className="w-6 h-6 object-contain icon-dark-mode"
+            className="object-contain"
           />
+
+          {icon.count > 0 && (
+            <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
+              {icon.count}
+            </span>
+          )}
         </div>
       ))}
     </div>
