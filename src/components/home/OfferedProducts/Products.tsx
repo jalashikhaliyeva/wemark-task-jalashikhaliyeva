@@ -20,7 +20,6 @@ export default function Products({ products }: ProductsProps) {
 
   const { addToCart, addToFavorites, cartItems, favoriteItems } = useCart();
 
-  // Track added items - initialize from cart context
   const [addedToCart, setAddedToCart] = useState<Set<string | number>>(() => 
     new Set(cartItems.map(item => item.id))
   );
@@ -29,7 +28,6 @@ export default function Products({ products }: ProductsProps) {
   );
   const itemsToRender = products.slice(0, visibleCount);
 
-  // Update button states when cart/favorites change
   useEffect(() => {
     setAddedToCart(new Set(cartItems.map(item => item.id)));
   }, [cartItems]);
@@ -163,7 +161,7 @@ export default function Products({ products }: ProductsProps) {
                   <span className="text-[10px] md:text-sm opacity-50 line-through">
                     {item.price.toFixed(2)} ₼
                   </span>
-                  <span className="text-sm md:text-lg font-semibold">
+                  <span className="text-xs md:text-lg font-semibold">
                     {item.discounted_price.toFixed(2)} ₼
                   </span>
                 </div>
@@ -171,7 +169,7 @@ export default function Products({ products }: ProductsProps) {
                   <span className="text-[10px] md:text-sm opacity-50">
                     {item.perMonth.month} ay
                   </span>
-                  <span className="text-sm md:text-lg font-semibold">
+                  <span className="text-xs md:text-lg font-semibold">
                     {item.perMonth?.price?.toFixed(2)} ₼
                   </span>
                 </div>

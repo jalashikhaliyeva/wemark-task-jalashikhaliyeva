@@ -66,6 +66,7 @@ export default function Partners() {
                  h-10 md:h-16 max-w-[120px] object-contain
                   filter grayscale hover:grayscale-0 
                   transition duration-300 ease-in-out
+                  icon-dark-mode
                 "
               />
             </div>
