@@ -3,29 +3,8 @@ import React, { useState, useRef } from "react";
 import { TbLayoutGrid } from "react-icons/tb";
 import { FiSearch } from "react-icons/fi";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
-
-const cities = ["Bakı", "Gəncə", "Sumqayıt", "Şəki", "Naxçıvan"];
-
-const searchSuggestions = [
-  {
-    id: 1,
-    name: "iPhone 15 Pro Max",
-    image: "/assets/img/search-items/phone.png",
-    price: "3,499₼",
-  },
-  {
-    id: 2,
-    name: "Samsung QLED TV",
-    image: "/assets/img/search-items/tv.png",
-    price: "1,899₼",
-  },
-  {
-    id: 3,
-    name: "ASUS Laptop",
-    image: "/assets/img/search-items/laptop.png",
-    price: "2,199₼",
-  },
-];
+import { cities } from "@/src/shared/mock/cities";
+import { searchSuggestions } from "@/src/shared/mock/searchSuggestions";
 
 function TopToolBar() {
   const [dropdownOpen, setDropdownOpen] = useState(false);

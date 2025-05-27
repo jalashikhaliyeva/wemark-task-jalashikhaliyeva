@@ -1,11 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
-import { HeroData } from "@/src/types";
+import { HeroProps } from "@/src/types";
 import Image from "next/image";
 import { HiOutlineArrowLeft, HiOutlineArrowRight } from "react-icons/hi";
-
-interface HeroProps {
-  data: HeroData;
-}
 
 const Hero: React.FC<HeroProps> = ({ data }) => {
   const sliderRef = useRef<HTMLDivElement>(null);

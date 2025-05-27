@@ -1,14 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import CategoryNavigation from "./CategoryNavigation";
 import Products from "./Products";
+import type { OfferedProductsProps, Product } from "@/src/types";
 
-function OfferedProducts() {
+export default function OfferedProducts({ data }: OfferedProductsProps) {
+  const categories = ["Hamısı", ...data.map((cat) => cat.title)];
+  const [selected, setSelected] = useState<string>("Hamısı");
+
+  const displayedProducts: Product[] =
+    selected === "Hamısı"
+      ? data.flatMap((cat) => cat.products)
+      : data.find((cat) => cat.title === selected)?.products || [];
+
   return (
     <div className="my-24">
-      <CategoryNavigation />
-      <Products />
+      <CategoryNavigation
+        categories={categories}
+        selected={selected}
+        onSelect={setSelected}
+      />
+      <Products products={displayedProducts} />
     </div>
   );
 }
-
-export default OfferedProducts;

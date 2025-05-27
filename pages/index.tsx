@@ -1,20 +1,25 @@
-// pages/index.tsx
 import Container from "@/src/components/layout/Container";
 import Header from "@/src/components/layout/Header";
-import type { HeroData, ServiceFeatureData } from "@/src/types";
+import type { HeroData, ServiceFeatureData, ProductsData } from "@/src/types";
 import { getHeroData } from "./api/services/heroService";
+import { getServiceFeatures } from "./api/services/servicesService";
 import Hero from "@/src/components/home/Hero";
 import TopToolBar from "@/src/components/layout/TopToolbar";
 import Services from "@/src/components/home/Services";
-import { getServiceFeatures } from "./api/services/servicesService";
 import OfferedProducts from "@/src/components/home/OfferedProducts";
+import { getProducts } from "./api/services/productsService";
 
 interface HomeProps {
   heroData: HeroData;
   serviceFeatures: ServiceFeatureData;
+  products: ProductsData;
 }
 
-export default function Home({ heroData, serviceFeatures }: HomeProps) {
+export default function Home({
+  heroData,
+  serviceFeatures,
+  products,
+}: HomeProps) {
   return (
     <main>
       <Container>
@@ -22,7 +27,7 @@ export default function Home({ heroData, serviceFeatures }: HomeProps) {
         <TopToolBar />
         <Hero data={heroData} />
         <Services data={serviceFeatures} />
-        <OfferedProducts />
+        <OfferedProducts data={products} />
       </Container>
     </main>
   );
@@ -30,15 +35,17 @@ export default function Home({ heroData, serviceFeatures }: HomeProps) {
 
 export async function getServerSideProps() {
   try {
-    const [heroData, serviceFeatures] = await Promise.all([
+    const [heroData, serviceFeatures, products] = await Promise.all([
       getHeroData(),
       getServiceFeatures(),
+      getProducts(),
     ]);
 
     return {
       props: {
         heroData,
         serviceFeatures,
+        products,
       },
     };
   } catch (error) {
@@ -47,6 +54,7 @@ export async function getServerSideProps() {
       props: {
         heroData: [],
         serviceFeatures: [],
+        products: [],
       },
     };
   }

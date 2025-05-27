@@ -1,12 +1,8 @@
 import React from "react";
-import type { ServiceFeatureData } from "@/src/types";
+import type { ServicesProps } from "@/src/types";
 import Image from "next/image";
 
-interface Props {
-  data: ServiceFeatureData;
-}
-
-function Services({ data }: Props) {
+function Services({ data }: ServicesProps) {
   if (!data || data.length === 0) return null;
 
   return (
