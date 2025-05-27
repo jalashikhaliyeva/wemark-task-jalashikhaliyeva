@@ -1,3 +1,5 @@
+
+// Modified TopToolBar component
 import Image from "next/image";
 import React, { useState, useRef } from "react";
 import { TbLayoutGrid } from "react-icons/tb";
@@ -7,7 +9,11 @@ import { cities } from "@/src/shared/mock/cities";
 import { searchSuggestions } from "@/src/shared/mock/searchSuggestions";
 import { useCart } from "@/src/context/CartContext";
 
-function TopToolBar() {
+interface TopToolBarProps {
+  isFixed?: boolean;
+}
+
+function TopToolBar({ isFixed = false }: TopToolBarProps) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [selectedCity, setSelectedCity] = useState("Bakı");
   const { cartCount, favoritesCount } = useCart();
@@ -23,6 +29,7 @@ function TopToolBar() {
     setSearchOpen((prev) => !prev);
     searchInputRef.current?.focus();
   };
+
   const icons = [
     { id: "compare", src: "scales.png", alt: "scale icon", count: 0 },
     { id: "cart", src: "Buy.png", alt: "buy icon", count: cartCount },
@@ -31,10 +38,9 @@ function TopToolBar() {
   ];
 
   return (
-    <div className="my-5 flex items-center gap-3 sm:gap-4 justify-between flex-wrap relative">
-      {/* Logo and Catalog Button - Mobile Row */}
+    <div className={`${isFixed ? 'py-2' : 'my-5'} flex items-center gap-3 sm:gap-4 justify-between flex-wrap relative`}>
       <div className="flex items-center gap-2 sm:gap-4 flex-shrink-0">
-        {/* Logo - Made smaller on mobile */}
+        {/* Logo */}
         <div className="flex-shrink-0">
           <Image
             src="/assets/img/logo-be.png"
@@ -47,14 +53,14 @@ function TopToolBar() {
           />
         </div>
 
-        {/* Kataloq Button - Adjusted padding and always shows text */}
+        {/* Kataloq Button */}
         <div className="bg-brandBtn py-2 px-3 sm:py-3 sm:px-5 rounded-full flex items-center gap-1 sm:gap-2 text-white text-sm sm:text-base font-sfpro font-semibold hover:brightness-110 transition flex-shrink-0">
           <TbLayoutGrid className="text-lg sm:text-xl" />
           <span>Kataloq</span>
         </div>
       </div>
 
-      {/* Search Input - Takes remaining space */}
+      {/* Search Input */}
       <div className="flex-1 min-w-[100px] sm:min-w-[150px] relative">
         <div
           className="bg-brandGray transition hover:bg-brandGraySecondary py-2 sm:py-3 px-3 sm:px-4 rounded-xl flex items-center cursor-pointer"
@@ -98,7 +104,7 @@ function TopToolBar() {
         )}
       </div>
 
-      {/* City Dropdown - Hidden on mobile */}
+      {/* City Dropdown */}
       <div className="hidden md:block relative max-w-2xs w-full">
         <div
           onClick={() => setDropdownOpen((prev) => !prev)}
@@ -131,6 +137,7 @@ function TopToolBar() {
         )}
       </div>
 
+      {/* Icons */}
       {icons.map((icon) => (
         <div
           key={icon.id}

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import DarkModeSwitcher from "../DarkModeSwitcher";
 import { HiMenu, HiX } from "react-icons/hi";
+import { FaAngleDown } from "react-icons/fa";
 
 
 function Header() {
@@ -52,8 +53,9 @@ function Header() {
         >
           Əvvəlki versiyaya keçid
         </a>
-        <button className="text-brandGrayText text-sm font-semibold hover:underline">
+        <button className="text-brandGrayText flex items-center gap-1 text-sm font-semibold ">
           Aze
+          <FaAngleDown />
         </button>
         <DarkModeSwitcher />
       </div>

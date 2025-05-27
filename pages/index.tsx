@@ -1,3 +1,4 @@
+// Modified Home page component
 import Container from "@/src/components/layout/Container";
 import Header from "@/src/components/layout/Header";
 import type { HeroData, ServiceFeatureData, ProductsData } from "@/src/types";
@@ -11,6 +12,9 @@ import { getProducts } from "./api/services/productsService";
 import Partners from "@/src/components/home/Partners";
 import Blogs from "@/src/components/home/Blogs";
 import Head from "next/head";
+import Footer from "@/src/components/layout/Footer";
+import { useState, useEffect } from "react";
+import NavBar from "@/src/components/layout/NavBar";
 
 interface HomeProps {
   heroData: HeroData;
@@ -24,20 +28,23 @@ export default function Home({
   products,
 }: HomeProps) {
   return (
-    <main>
-      <Head>
-        <title>Jala Sh. | Wemark/Baku Electronics</title>
-      </Head>
-      <Container>
-        <Header />
-        <TopToolBar />
-        <Hero data={heroData} />
-        <Services data={serviceFeatures} />
-        <OfferedProducts data={products} />
-      </Container>
-      <Blogs />
-      <Partners />
-    </main>
+    <>
+      <main>
+        <Head>
+          <title>Jala Sh. | Wemark/Baku Electronics</title>
+        </Head>
+        <Container>
+          <Header />
+          <NavBar />
+          <Hero data={heroData} />
+          <Services data={serviceFeatures} />
+          <OfferedProducts data={products} />
+        </Container>
+        <Blogs />
+        <Partners />
+      </main>
+      <Footer />
+    </>
   );
 }
 

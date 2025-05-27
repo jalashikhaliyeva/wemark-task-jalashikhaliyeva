@@ -24,7 +24,7 @@ export default function CustomToast({
   return (
     <div className="fixed top-4 left-0 right-0 flex justify-center z-50">
       <div
-        className={`bg-white shadow-lg rounded-md h-[120px] flex items-center mx-4 border border-gray-200 w-full max-w-2xl ${
+        className={`bg-background shadow-lg rounded-md h-[120px] flex items-center mx-4 border border-gray-200 w-full max-w-2xl ${
           show ? "animate-slide-down" : "animate-slide-up"
         }`}
         onAnimationEnd={() => {
