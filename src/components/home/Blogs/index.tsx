@@ -34,14 +34,14 @@ function Blogs() {
 
                 <a
                   href={post.link}
-                  className="absolute top-3 right-3 bg-white text-brandGrayText font-semibold text-xs   tracking-wide px-4 py-2 rounded-lg shadow-lg transition-opacity duration-300 hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brandRed"
+                  className="absolute top-3 right-3 bg-white text-brandToggle font-semibold text-xs   tracking-wide px-4 py-2 rounded-lg shadow-lg transition-opacity duration-300 hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brandRed"
                 >
                   Ətraflı
                 </a>
               </div>
 
               {/* Title */}
-              <h3 className="mt-4 text-lg font-semibold text-gray-800 hover:text-brandRed transition-colors duration-300">
+              <h3 className="mt-4 text-lg font-semibold text-brandGrayText hover:text-brandRed transition-colors duration-300">
                 {post.title}
               </h3>
             </article>

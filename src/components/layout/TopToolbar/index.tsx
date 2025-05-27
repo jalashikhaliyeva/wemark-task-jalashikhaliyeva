@@ -141,7 +141,7 @@ function TopToolBar() {
             width={24}
             height={24}
             alt={icon.alt}
-            className="object-contain"
+            className="object-contain icon-dark-mode"
           />
 
           {icon.count > 0 && (

@@ -62,6 +62,7 @@
   --color-brandGray: var(--brandGray);
   --color-brandGrayText: var(--brandGrayText);
   --color-placeholderText: var(--placeholderText);
+  --color-brandToggle: var(--brandToggle);
   --color-brandGraySecondary: var(--brandGraySecondary);
   --font-sfpro: var(--fontSfProDisplay);
   /* Enable dark mode */
