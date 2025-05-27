@@ -94,8 +94,9 @@ const Footer = () => {
         <div className="flex  flex-col md:flex-row mt-5 border-t border-neutral-300 w-full justify-between">
           <div className="pt-4  text-center text-base">
             <p>
-              Copyright © 2025 Baku Electronics. <br></br> Bütün hüquqlar
-              qorunur.
+              Copyright © 2025{" "}
+              <span className="font-semibold">Baku Electronics</span> . Bütün
+              hüquqlar qorunur.
             </p>
           </div>
           <div className="pt-4  text-center text-base">
