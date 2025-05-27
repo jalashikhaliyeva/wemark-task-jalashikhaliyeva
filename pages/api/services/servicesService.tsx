@@ -1,4 +1,3 @@
-// src/api/services/serviceFeatureService.ts
 import { API_ENDPOINTS } from "../endpoints";
 import type { ServiceFeatureData } from "@/src/types";
 
