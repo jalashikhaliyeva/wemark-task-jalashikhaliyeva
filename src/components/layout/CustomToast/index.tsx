@@ -2,16 +2,7 @@
 import React, { useEffect } from "react";
 import Image from "next/image";
 import { IoClose } from "react-icons/io5";
-
-interface CustomToastProps {
-  show: boolean;
-  onClose: () => void;
-  product: { image: string; name: string };
-  message?: string;
-  linkText?: string;
-  linkHref?: string;
-}
-
+import { CustomToastProps } from "@/src/types";
 
 export default function CustomToast({
   show,

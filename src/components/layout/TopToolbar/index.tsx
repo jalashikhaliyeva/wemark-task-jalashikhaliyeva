@@ -63,7 +63,7 @@ function TopToolBar() {
           <input
             ref={searchInputRef}
             type="text"
-            placeholder="Axtar..."
+            placeholder="Məhsul axtar..."
             className="bg-transparent flex-1 outline-none text-sm placeholder-placeholderText opacity-50"
             readOnly
           />

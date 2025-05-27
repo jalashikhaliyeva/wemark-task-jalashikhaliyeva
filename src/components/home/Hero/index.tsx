@@ -8,7 +8,6 @@ const Hero: React.FC<HeroProps> = ({ data }) => {
   const [current, setCurrent] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
 
-  // Drag state
   const isDragging = useRef(false);
   const startX = useRef(0);
   const scrollLeft = useRef(0);
@@ -16,7 +15,6 @@ const Hero: React.FC<HeroProps> = ({ data }) => {
   const slideCount = data.length;
 
   useEffect(() => {
-    // Check if mobile on mount and resize
     const checkIfMobile = () => {
       setIsMobile(window.innerWidth < 768);
     };

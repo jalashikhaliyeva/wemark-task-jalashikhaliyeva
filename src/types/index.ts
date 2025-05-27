@@ -56,7 +56,6 @@ export interface ProductsProps {
   products: Product[];
 }
 
-
 export interface OfferedProductsProps {
   data: ProductCategory[];
 }
@@ -65,4 +64,24 @@ export interface CategoryNavigationProps {
   categories: string[];
   selected: string;
   onSelect: (category: string) => void;
+}
+
+export interface CartContextType {
+  cartCount: number;
+  favoritesCount: number;
+  cartItems: Product[];
+  favoriteItems: Product[];
+  addToCart: (product: Product) => void;
+  addToFavorites: (product: Product) => void;
+  removeFromCart: (productId: string | number) => void;
+  removeFromFavorites: (productId: string | number) => void;
+}
+
+export interface CustomToastProps {
+  show: boolean;
+  onClose: () => void;
+  product: { image: string; name: string };
+  message?: string;
+  linkText?: string;
+  linkHref?: string;
 }

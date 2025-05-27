@@ -1,4 +1,3 @@
-// src/context/CartContext.tsx
 import React, {
   createContext,
   useContext,
@@ -6,25 +5,7 @@ import React, {
   useEffect,
   ReactNode,
 } from "react";
-
-interface Product {
-  id: string | number;
-  name: string;
-  image: string;
-  price: number;
-  discounted_price: number;
-}
-
-interface CartContextType {
-  cartCount: number;
-  favoritesCount: number;
-  cartItems: Product[];
-  favoriteItems: Product[];
-  addToCart: (product: Product) => void;
-  addToFavorites: (product: Product) => void;
-  removeFromCart: (productId: string | number) => void;
-  removeFromFavorites: (productId: string | number) => void;
-}
+import { CartContextType, Product } from "../types";
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
