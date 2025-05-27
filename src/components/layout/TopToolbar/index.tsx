@@ -8,10 +8,9 @@ import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { cities } from "@/src/shared/mock/cities";
 import { searchSuggestions } from "@/src/shared/mock/searchSuggestions";
 import { useCart } from "@/src/context/CartContext";
+import { TopToolBarProps } from "@/src/types";
 
-interface TopToolBarProps {
-  isFixed?: boolean;
-}
+
 
 function TopToolBar({ isFixed = false }: TopToolBarProps) {
   const [dropdownOpen, setDropdownOpen] = useState(false);

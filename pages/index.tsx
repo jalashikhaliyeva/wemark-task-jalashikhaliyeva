@@ -1,7 +1,6 @@
-// Modified Home page component
 import Container from "@/src/components/layout/Container";
 import Header from "@/src/components/layout/Header";
-import type { HeroData, ServiceFeatureData, ProductsData } from "@/src/types";
+import type { HomeProps } from "@/src/types";
 import { getHeroData } from "./api/services/heroService";
 import { getServiceFeatures } from "./api/services/servicesService";
 import Hero from "@/src/components/home/Hero";
@@ -13,12 +12,6 @@ import Blogs from "@/src/components/home/Blogs";
 import Head from "next/head";
 import Footer from "@/src/components/layout/Footer";
 import NavBar from "@/src/components/layout/NavBar";
-
-interface HomeProps {
-  heroData: HeroData;
-  serviceFeatures: ServiceFeatureData;
-  products: ProductsData;
-}
 
 export default function Home({
   heroData,

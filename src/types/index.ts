@@ -85,3 +85,14 @@ export interface CustomToastProps {
   linkText?: string;
   linkHref?: string;
 }
+
+
+export interface HomeProps {
+  heroData: HeroData;
+  serviceFeatures: ServiceFeatureData;
+  products: ProductsData;
+}
+
+export interface TopToolBarProps {
+  isFixed?: boolean;
+}
