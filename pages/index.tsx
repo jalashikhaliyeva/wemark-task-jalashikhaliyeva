@@ -8,6 +8,8 @@ import TopToolBar from "@/src/components/layout/TopToolbar";
 import Services from "@/src/components/home/Services";
 import OfferedProducts from "@/src/components/home/OfferedProducts";
 import { getProducts } from "./api/services/productsService";
+import Partners from "@/src/components/home/Partners";
+import Blogs from "@/src/components/home/Blogs";
 
 interface HomeProps {
   heroData: HeroData;
@@ -29,6 +31,8 @@ export default function Home({
         <Services data={serviceFeatures} />
         <OfferedProducts data={products} />
       </Container>
+      <Blogs />
+      <Partners />
     </main>
   );
 }

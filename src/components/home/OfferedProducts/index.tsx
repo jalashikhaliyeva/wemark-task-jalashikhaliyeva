@@ -13,7 +13,7 @@ export default function OfferedProducts({ data }: OfferedProductsProps) {
       : data.find((cat) => cat.title === selected)?.products || [];
 
   return (
-    <div className="my-24">
+    <div className="my-5 md:my-24">
       <CategoryNavigation
         categories={categories}
         selected={selected}

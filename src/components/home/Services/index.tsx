@@ -6,7 +6,7 @@ function Services({ data }: ServicesProps) {
   if (!data || data.length === 0) return null;
 
   return (
-    <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 md:gap-8 my-8">
+    <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 md:gap-8 my-4 md:my-8">
       {data.map((item, index) => (
         <div
           key={index}

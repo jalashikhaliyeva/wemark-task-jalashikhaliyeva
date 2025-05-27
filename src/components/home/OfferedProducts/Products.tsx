@@ -50,7 +50,7 @@ export default function Products({ products }: ProductsProps) {
           >
             {/* Image */}
             <div className="absolute -top-[15px] md:-top-[30px] left-0 right-0 px-3 md:px-5">
-              <div className="relative w-full h-[100px] md:h-[280px]">
+              <div className="relative w-full h-[140px] md:h-[280px]">
                 <Image
                   src={item.image}
                   alt={item.name}
@@ -72,7 +72,7 @@ export default function Products({ products }: ProductsProps) {
             </div>
 
             {/* Rating & reviews */}
-            <div className="flex gap-2 items-center pt-2 mt-[85px] md:mt-[250px] text-[10px] md:text-xs text-brandGrayText">
+            <div className="flex gap-2 items-center pt-2 mt-[125px] md:mt-[250px] text-[10px] md:text-xs text-brandGrayText">
               <span className="flex items-center gap-1">
                 <Image
                   src="/assets/img/icons/Star.png"
@@ -121,12 +121,12 @@ export default function Products({ products }: ProductsProps) {
             {/* Actions */}
             <div className="pt-3 md:pt-6 flex items-center gap-2">
               <button className="group py-1.5 md:py-2.5 cursor-pointer px-2 md:px-4 bg-brandGraySecondary rounded-xl md:rounded-2xl w-[80%] flex items-center justify-center gap-3 md:gap-6 hover:bg-brandRed hover:text-white transition-colors duration-300">
-                <div className="relative w-4 h-4 md:w-5 md:h-5">
+                <div className="hidden md:flex relative w-4 h-4 md:w-5 md:h-5">
                   <Image
                     src={"/assets/img/icons/Buy.png"}
                     alt="Add to cart"
                     fill
-                    className="group-hover:brightness-0 group-hover:invert"
+                    className="group-hover:brightness-0 group-hover:invert icon-dark-mode"
                   />
                 </div>
                 <span className="text-xs md:text-base">Səbətə əlavə et</span>
@@ -137,7 +137,7 @@ export default function Products({ products }: ProductsProps) {
                     src={"/assets/img/icons/Heart.png"}
                     alt="Favorite"
                     fill
-                    className="group-hover:brightness-0 group-hover:invert"
+                    className="group-hover:brightness-0 object-contain group-hover:invert icon-dark-mode"
                   />
                 </div>
               </button>
@@ -155,7 +155,7 @@ export default function Products({ products }: ProductsProps) {
 
       <div ref={loaderRef} />
 
-      {/*  “No more items” message */}
+      {/*  "No more items" message */}
       {/* {!loading && visibleCount >= products.length && (
         <p className="text-center py-4 text-sm text-gray-500">
           Bütün məhsullar yükləndi.

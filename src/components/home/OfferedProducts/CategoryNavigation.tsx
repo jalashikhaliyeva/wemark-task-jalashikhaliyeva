@@ -15,7 +15,7 @@ export default function CategoryNavigation({
         </h5>
       </div>
 
-      <div className="bg-brandGray py-3 px-6 rounded-full flex items-center gap-7 flex-wrap">
+      <div className="w-full md:w-fit bg-brandGray cursor-pointer py-3 px-6 rounded-3xl flex items-center gap-7 overflow-x-auto scrollbar-hide">
         {categories.map((cat) => (
           <button
             key={cat}
@@ -23,7 +23,7 @@ export default function CategoryNavigation({
             className={`text-xs md:text-sm font-semibold ${
               cat === selected
                 ? "text-brandGrayText"
-                : "text-placeholderText opacity-50 hover:opacity-100"
+                : "text-placeholderText opacity-50 hover:opacity-100 cursor-pointer"
             }`}
           >
             {cat}

@@ -23,33 +23,33 @@ function TopToolBar() {
   };
 
   return (
-    <div className="my-5 flex items-center gap-4 justify-between flex-wrap relative">
+    <div className="my-5 flex items-center gap-3 sm:gap-4 justify-between flex-wrap relative">
       {/* Logo and Catalog Button - Mobile Row */}
-      <div className="flex items-center gap-4 flex-shrink-0">
-        {/* Logo */}
+      <div className="flex items-center gap-2 sm:gap-4 flex-shrink-0">
+        {/* Logo - Made smaller on mobile */}
         <div className="flex-shrink-0">
           <Image
             src="/assets/img/logo-be.png"
-            width={100}
-            height={100}
+            width={80}
+            height={80}
             quality={100}
             alt="logo Baku Electronics"
-            className="w-12 h-12 object-cover"
+            className="w-10 h-10 sm:w-12 sm:h-12 object-cover"
             priority
           />
         </div>
 
-        {/* Kataloq Button */}
-        <div className="bg-brandBtn py-3 px-5 rounded-full flex items-center gap-2 text-white text-base font-sfpro font-semibold hover:brightness-110 transition flex-shrink-0">
-          <TbLayoutGrid className="text-xl" />
-          <span className="hidden sm:inline">Kataloq</span>
+        {/* Kataloq Button - Adjusted padding and always shows text */}
+        <div className="bg-brandBtn py-2 px-3 sm:py-3 sm:px-5 rounded-full flex items-center gap-1 sm:gap-2 text-white text-sm sm:text-base font-sfpro font-semibold hover:brightness-110 transition flex-shrink-0">
+          <TbLayoutGrid className="text-lg sm:text-xl" />
+          <span>Kataloq</span>
         </div>
       </div>
 
-      {/* Search Input - Takes remaining space on mobile */}
-      <div className="flex-1 min-w-[150px] relative">
+      {/* Search Input - Takes remaining space */}
+      <div className="flex-1 min-w-[100px] sm:min-w-[150px] relative">
         <div
-          className="bg-brandGray transition hover:bg-brandGraySecondary py-3 px-4 rounded-xl flex items-center cursor-pointer"
+          className="bg-brandGray transition hover:bg-brandGraySecondary py-2 sm:py-3 px-3 sm:px-4 rounded-xl flex items-center cursor-pointer"
           onClick={handleSearchClick}
         >
           <input
@@ -59,7 +59,7 @@ function TopToolBar() {
             className="bg-transparent flex-1 outline-none text-sm placeholder-placeholderText opacity-50"
             readOnly
           />
-          <FiSearch className="text-placeholderText opacity-50 text-lg" />
+          <FiSearch className="text-placeholderText opacity-50 text-base sm:text-lg" />
         </div>
 
         {searchOpen && (

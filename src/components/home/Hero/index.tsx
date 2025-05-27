@@ -87,7 +87,7 @@ const Hero: React.FC<HeroProps> = ({ data }) => {
     <div className="relative w-full">
       <div
         ref={sliderRef}
-        className="slider w-full overflow-x-scroll scroll-smooth snap-x snap-mandatory flex h-[334px] md:h-[540px] gap-[20px] cursor-grab"
+        className="slider w-full overflow-x-scroll scroll-smooth snap-x snap-mandatory flex h-[264px] md:h-[540px] gap-[20px] cursor-grab"
         onMouseDown={onDragStart}
         onMouseUp={onDragEnd}
         onMouseLeave={onDragEnd}
@@ -123,18 +123,18 @@ const Hero: React.FC<HeroProps> = ({ data }) => {
 
       <button
         onClick={prevSlide}
-        className="absolute top-1/2 left-0 md:left-[-26px] transform -translate-y-1/2 bg-white bg-opacity-70 hover:bg-opacity-100 text-brandRed rounded-2xl p-3 shadow-md"
+        className="absolute top-1/2 left-0 md:left-[-26px] transform -translate-y-1/2 bg-white bg-opacity-70 hover:bg-opacity-100 text-brandRed rounded-lg md:rounded-2xl p-2 md:p-3 shadow-md"
         aria-label="Previous slide"
       >
-        <HiOutlineArrowLeft size={24} />
+        <HiOutlineArrowLeft  className="size-3.5 md:size-6" />
       </button>
 
       <button
         onClick={nextSlide}
-        className="absolute top-1/2 right-0 md:right-[-26px] transform -translate-y-1/2 bg-white bg-opacity-70 hover:bg-opacity-100 text-brandRed rounded-2xl p-3 shadow-md"
+        className="absolute top-1/2 right-0 md:right-[-26px] transform -translate-y-1/2 bg-white bg-opacity-70 hover:bg-opacity-100 text-brandRed rounded-lg md:rounded-2xl p-2 md:p-3 shadow-md"
         aria-label="Next slide"
       >
-        <HiOutlineArrowRight size={24} />
+        <HiOutlineArrowRight className="size-3.5 md:size-6" />
       </button>
     </div>
   );
