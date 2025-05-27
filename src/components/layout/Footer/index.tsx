@@ -1,15 +1,10 @@
 import {
-  FaFacebook,
   FaFacebookF,
   FaInstagram,
   FaLinkedinIn,
-  FaTelegram,
   FaTelegramPlane,
-  FaTwitter,
-  FaYoutube,
 } from "react-icons/fa";
 import Container from "../Container";
-import { BiPhone } from "react-icons/bi";
 import { FiPhoneCall } from "react-icons/fi";
 
 const Footer = () => {
@@ -18,7 +13,7 @@ const Footer = () => {
       <Container>
         <div className="flex flex-col md:flex-row justify-between gap-6">
           {/* Newsletter section */}
-          <div className="md:w-[30%] flex flex-col gap-20 ">
+          <div className="md:w-[30%] flex flex-col gap-5 md:gap-20 ">
             <div>
               <h2 className="text-lg font-bold mb-3">
                 Yeniliklərdən ilk sən xəbərdar ol!

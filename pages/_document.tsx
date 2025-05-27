@@ -5,7 +5,6 @@ export default function Document() {
     <Html lang="en">
       <Head>
         <link rel="icon" href="/assets/img/logo-be.png" />
-        <title>Jala Sh. | Wemark / Baku Electronics</title>
       </Head>
 
       <body className="antialiased">

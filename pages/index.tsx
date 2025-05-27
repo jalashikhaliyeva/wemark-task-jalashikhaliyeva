@@ -5,7 +5,6 @@ import type { HeroData, ServiceFeatureData, ProductsData } from "@/src/types";
 import { getHeroData } from "./api/services/heroService";
 import { getServiceFeatures } from "./api/services/servicesService";
 import Hero from "@/src/components/home/Hero";
-import TopToolBar from "@/src/components/layout/TopToolbar";
 import Services from "@/src/components/home/Services";
 import OfferedProducts from "@/src/components/home/OfferedProducts";
 import { getProducts } from "./api/services/productsService";
@@ -13,7 +12,6 @@ import Partners from "@/src/components/home/Partners";
 import Blogs from "@/src/components/home/Blogs";
 import Head from "next/head";
 import Footer from "@/src/components/layout/Footer";
-import { useState, useEffect } from "react";
 import NavBar from "@/src/components/layout/NavBar";
 
 interface HomeProps {
