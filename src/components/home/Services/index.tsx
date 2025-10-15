@@ -1,6 +1,5 @@
 import React from "react";
 import type { ServicesProps } from "@/src/types";
-import Image from "next/image";
 
 function Services({ data }: ServicesProps) {
   if (!data || data.length === 0) return null;
@@ -10,23 +9,19 @@ function Services({ data }: ServicesProps) {
       {data.map((item, index) => (
         <div
           key={index}
-          className="flex flex-col p-3 md:p-6  bg-brandGray rounded-3xl gap-7"
+          className="flex flex-col p-3 md:p-6 bg-brandGray rounded-3xl gap-7"
         >
-          <div className="bg-brandGraySecondary w-fit p-2 md:p-3 rounded-2xl ">
-            <Image
-              width={32}
-              height={32}
-              src={item.icon}
-              alt={item.title}
-              className="w-4 h-4 md:w-6 md:h-6 icon-dark-mode "
-            />
+          <div className="bg-brandGraySecondary w-fit p-2 md:p-3 rounded-2xl">
+            <div className="w-4 h-4 md:w-6 md:h-6 text-current icon-dark-mode flex items-center justify-center">
+              {item.icon}
+            </div>
           </div>
 
           <div className="flex flex-col gap-1">
-            <h3 className="font-semibold text-base  md:text-2xl">
+            <h3 className="font-semibold text-base md:text-2xl">
               {item.title}
             </h3>
-            <p className="text-sm  md:text-base text-brandGrayText opacity-60 ">
+            <p className="text-sm md:text-base text-brandGrayText opacity-60">
               {item.description}
             </p>
           </div>

@@ -12,24 +12,22 @@ import Blogs from "@/src/components/home/Blogs";
 import Head from "next/head";
 import Footer from "@/src/components/layout/Footer";
 import NavBar from "@/src/components/layout/NavBar";
+import { mockServicesData } from "@/src/shared/mock/mockServicesData";
+import { mockData } from "@/src/shared/mock/MockItems";
 
-export default function Home({
-  heroData,
-  serviceFeatures,
-  products,
-}: HomeProps) {
+export default function Home({ heroData }: HomeProps) {
   return (
     <>
       <main>
         <Head>
-          <title>Jala Sh. | Wemark/Baku Electronics</title>
+          <title>Baku Electronics</title>
         </Head>
         <Container>
           <Header />
           <NavBar />
           <Hero data={heroData} />
-          <Services data={serviceFeatures} />
-          <OfferedProducts data={products} />
+          <Services data={mockServicesData} />
+          <OfferedProducts data={mockData} />
         </Container>
         <Blogs />
         <Partners />
@@ -40,28 +38,26 @@ export default function Home({
 }
 
 export async function getServerSideProps() {
-  try {
-    const [heroData, serviceFeatures, products] = await Promise.all([
-      getHeroData(),
-      getServiceFeatures(),
-      getProducts(),
-    ]);
+  const heroData = await getHeroData().catch((error) => {
+    console.error("Error in getHeroData:", error);
+    return [];
+  });
 
-    return {
-      props: {
-        heroData,
-        serviceFeatures,
-        products,
-      },
-    };
-  } catch (error) {
-    console.error("Error fetching data:", error);
-    return {
-      props: {
-        heroData: [],
-        serviceFeatures: [],
-        products: [],
-      },
-    };
-  }
+  const serviceFeatures = await getServiceFeatures().catch((error) => {
+    console.error("Error in getServiceFeatures:", error);
+    return [];
+  });
+
+  const products = await getProducts().catch((error) => {
+    console.error("Error in getProducts:", error);
+    return [];
+  });
+
+  return {
+    props: {
+      heroData,
+      serviceFeatures,
+      products,
+    },
+  };
 }

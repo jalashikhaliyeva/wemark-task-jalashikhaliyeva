@@ -146,31 +146,31 @@ export default function Products({ products }: ProductsProps) {
                     width={16}
                     height={16}
                   />
-                  {item.reviewCount} Rəy
+                  {item?.reviewCount} Rəy
                 </span>
               </div>
 
               {/* Title */}
               <h4 className="text-xs md:text-sm text-brandGrayText pt-2 pb-3 md:pb-6 line-clamp-1">
-                {item.name}
+                {item?.name}
               </h4>
 
               {/* Prices */}
               <div className="flex gap-8">
                 <div className="flex flex-col">
                   <span className="text-[10px] md:text-sm opacity-50 line-through">
-                    {item.price.toFixed(2)} ₼
+                    {item?.price?.toFixed(2)} ₼
                   </span>
                   <span className="text-xs md:text-lg font-semibold">
-                    {item.discounted_price.toFixed(2)} ₼
+                    {item?.discounted_price?.toFixed(2)} ₼
                   </span>
                 </div>
                 <div className="flex flex-col">
                   <span className="text-[10px] md:text-sm opacity-50">
-                    {item.perMonth.month} ay
+                    {item?.perMonth?.month} ay
                   </span>
                   <span className="text-xs md:text-lg font-semibold">
-                    {item.perMonth?.price?.toFixed(2)} ₼
+                    {item?.perMonth?.price?.toFixed(2)} ₼
                   </span>
                 </div>
               </div>
