@@ -12,7 +12,7 @@ import Blogs from "@/src/components/home/Blogs";
 import Head from "next/head";
 import Footer from "@/src/components/layout/Footer";
 import NavBar from "@/src/components/layout/NavBar";
-import { mockServicesData } from "@/src/shared/mock/mockServicesData";
+import { mockServicesData } from "@/src/shared/mock/MockServicesData";
 import { mockData } from "@/src/shared/mock/MockItems";
 
 export default function Home({ heroData }: HomeProps) {
